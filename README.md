@@ -23,7 +23,7 @@ closer to real deployment
 RHEL/CentOS environment
 
 ## DevStack Installation Guide (Ubuntu 22.04/20.04)
-### 1. System Requirements
+### **1. System Requirements**
 
 | Requirement | Value |
 | :--- | :--- |
@@ -34,7 +34,7 @@ RHEL/CentOS environment
 | User | Non-root **sudo** user |
 | Networking | Internet access required |
 
-### 2. Prepare System
+### **2. Prepare System**
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install git -y
@@ -65,7 +65,6 @@ cd devstack
 
 ---
 
-### **4. Create `local.conf`**
 ### **4. Create `local.conf`**
 
 ```bash
@@ -104,7 +103,7 @@ Save & exit.
 
 
 ---
-### OpenStack dashboard
+### **6 OpenStack dashboard**
 ```
 http://<your-ip>/dashboard
 ```
@@ -120,6 +119,7 @@ Password:
 ```
 admin
 ```
+![telegram-cloud-photo-size-5-6095977332851018701-y](https://github.com/user-attachments/assets/ebcee12d-e557-454f-9e5a-2f56f40c9f28)
 
 ---
 ### **7. Manage DevStack**
