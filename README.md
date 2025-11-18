@@ -66,7 +66,97 @@ cd devstack
 ---
 
 ### **4. Create `local.conf`**
+### **4. Create `local.conf`**
+
+```bash
+nano local.conf
+```
+
+Paste:
+
+```ini
+[[local|localrc]]
+ADMIN_PASSWORD=admin
+DATABASE_PASSWORD=$ADMIN_PASSWORD
+RABBIT_PASSWORD=$ADMIN_PASSWORD
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+HOST_IP=127.0.0.1
+
+# Recommended services
+enable_service horizon
+enable_service glance
+enable_service keystone
+enable_service neutron
+enable_service nova
+enable_service placement-api
+```
+
+Save & exit.
+
+---
+
+### **5. Start Installation**
+
+```bash
+./stack.sh
+```
 
 
+
+---
+### OpenStack dashboard
+```
+http://<your-ip>/dashboard
+```
+
+Username:
+
+```
+admin
+```
+
+Password:
+
+```
+admin
+```
+
+---
+### **7. Manage DevStack**
+
+Stop DevStack:
+
+```bash
+./unstack.sh
+```
+
+Clean everything:
+
+```bash
+./clean.sh
+```
+
+---
+
+### **Troubleshooting Tips**
+
+| Issue                | Fix                                    |
+| -------------------- | -------------------------------------- |
+| Memory errors        | Increase RAM / swap                    |
+| Network DHCP issues  | Restart `neutron` or reboot            |
+| Keystone auth errors | Ensure passwords match in `local.conf` |
+| Re-install stuck     | Run `./clean.sh` then `./stack.sh`     |
+
+---
+
+### **VM Notes**
+
+If installing inside VirtualBox / VMware:
+
+* Enable **VT-x / AMD-V**
+* Set **bridged networking**
+* Allocate **≥8GB RAM, ≥4 vCPU**
+
+---
 
 
